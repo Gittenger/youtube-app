@@ -2,7 +2,21 @@ import styled, { css } from 'styled-components'
 import { device } from '../../styles/css/utils.styles'
 import colors from '../../styles/colors'
 
-const typeOptions = {
+const propsOptions = {
+	shared: {
+		color: {
+			red: css`
+				color: ${colors.red};
+			`,
+			dark: css`
+				color: ${colors.dark};
+			`,
+			black: css`
+				color: ${colors.black};
+			`,
+		},
+	},
+
 	MainP: {
 		size: {
 			s: css`
@@ -20,30 +34,22 @@ const typeOptions = {
 				}
 			`,
 		},
-		color: {
-			red: css`
-				color: ${colors.red};
-			`,
-			dark: css`
-				color: ${colors.dark};
-			`,
-		},
 	},
 }
+
+const colorOption = ({ fontColor }) =>
+	fontColor === 'red' || fontColor === 'dark' || fontColor === 'black'
+		? propsOptions.shared.color[fontColor]
+		: ''
 
 export const MainP = styled.p`
 	font-family: var(--fontMain);
 	font-weight: 400;
 
 	${({ size }) =>
-		size === 's' ? typeOptions.MainP.size.s : typeOptions.MainP.size.m}
+		size === 's' ? propsOptions.MainP.size.s : propsOptions.MainP.size.m}
 
-	${({ fontColor }) =>
-		fontColor === 'red'
-			? typeOptions.MainP.color.red
-			: fontColor === 'dark'
-			? typeOptions.MainP.color.dark
-			: ''}
+	${colorOption}
 `
 
 export const MainH1 = styled.h1`
@@ -54,6 +60,8 @@ export const MainH1 = styled.h1`
 	${device.tabletLand} {
 		font-size: 3.5rem;
 	}
+
+	${colorOption}
 `
 
 export const tycomp = {

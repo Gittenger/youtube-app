@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import fontFaces from "./typography/fontFaces";
+import fontFaces from './typography/fontFaces'
 
 const GlobalStyles = createGlobalStyle`
 ${fontFaces}
@@ -13,19 +13,25 @@ ${fontFaces}
 
 html {
     font-size: 62.5%;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-	${({ theme: { css } }) => css.flexCenterCol};
+    ${({ theme: { styles } }) => styles.flexCenterCol};
+	${({ theme: { styles } }) => styles.scrollBarStyles};
+    
     font-size: 1.8rem;
-    width: 100vw;
+    max-width: 100%;
+    padding-right: 10px;
 }
 
 #root {
-	${({ theme: { css } }) => css.flexCenterCol};
+	${({ theme: { styles } }) => styles.flexCenterCol};
     
     /* set font vars in root */
     ${({ theme: { typography } }) => typography.fontVars.fontMain};
+    max-width: 100%;
 }
 
 /* set shared typography styles */
@@ -47,6 +53,6 @@ ul, li {
 button {
     font-family: inherit;
 }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

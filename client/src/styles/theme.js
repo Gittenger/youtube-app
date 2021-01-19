@@ -2,14 +2,14 @@ import typography from './typography/typography'
 import colors from './colors'
 import { cssIndex } from './css/utils.styles'
 
-export const css = {
+export const styles = {
 	...cssIndex,
 }
 
 export const theme = {
 	colors,
 	typography,
-	css,
+	styles,
 }
 
 export default theme

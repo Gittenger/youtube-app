@@ -10,7 +10,7 @@ export const sharedStyles = css`
 	h5,
 	h6,
 	p {
-		color: ${colors.black};
+		color: blue;
 	}
 `
 
