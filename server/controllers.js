@@ -20,11 +20,12 @@ exports.getData = catchAsync(async (req, res, next) => {
 		key,
 		channelId,
 		part: ['snippet', 'contentDetails'],
-		maxResults: 5,
+		maxResults: 15,
 	})
 
 	const playlistData = playlists.data.items.map(
-		({ snippet, contentDetails }) => ({
+		({ id, snippet, contentDetails }) => ({
+			id,
 			image: snippet.thumbnails.high.url,
 			title: snippet.title,
 			length: contentDetails.itemCount,

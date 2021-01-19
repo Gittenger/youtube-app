@@ -1,11 +1,16 @@
 import GlobalStyles from './styles/global.styles'
-import Display from './components/Display/Display.component'
+import { Route } from 'react-router-dom'
+
+import ComponentsIndex from './components/components.index.js'
+
+const { Display, Playlist } = ComponentsIndex
 
 function App() {
 	return (
 		<>
 			<GlobalStyles />
-			<Display />
+			<Route exact path="/" component={Display} />
+			<Route exact path="/playlist/:playlistName" component={Playlist} />
 		</>
 	)
 }

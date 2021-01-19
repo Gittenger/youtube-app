@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import { MainP, MainH1 } from '../typography/typography.components'
 
-export const Container = styled.div`
+export const Container = styled(Link)`
 	${({ theme: { styles } }) => styles.flexCenterCol}
 	align-items: flex-start;
 `
